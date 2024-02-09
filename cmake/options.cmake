@@ -1,0 +1,1 @@
+option(SEED_BUILD_TESTS "Build tests for seed" OFF)
