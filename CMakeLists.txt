@@ -20,6 +20,7 @@ add_library(passionfruit::seed ALIAS passionfruit_seed)
 # Add sources
 target_sources(passionfruit_seed PRIVATE
     src/seed.cpp
+    src/window.cpp
 )
 
 # Add include directory
@@ -30,8 +31,19 @@ target_include_directories(
     "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>"
 )
 
+# Import export.hpp
+target_include_directories(
+    passionfruit_seed SYSTEM
+    PUBLIC
+    "$<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/include>"
+)
+
 # Include and link dependencies
-#target_link_libraries(passionfruit_seed)
+target_link_libraries(passionfruit_seed
+    PUBLIC
+        nonstd::expected-lite
+        SDL2::SDL2
+)
 
 # Add compile options
 add_dev_compile_opts(passionfruit_seed)

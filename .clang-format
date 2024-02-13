@@ -1,8 +1,11 @@
 ---
 AccessModifierOffset: -4
+AlignAfterOpenBracket: BlockIndent
 AlignConsecutiveAssignments: true
 AlignTrailingComments: true
 AllowAllConstructorInitializersOnNextLine: true
+AllowAllArgumentsOnNextLine: false
+AllowAllParametersOfDeclarationOnNextLine: false
 AllowShortBlocksOnASingleLine: true
 AllowShortCaseLabelsOnASingleLine: false
 AllowShortFunctionsOnASingleLine: Inline
@@ -35,3 +38,5 @@ SpacesInCStyleCastParentheses: false
 SpacesInContainerLiterals: false
 SpacesInParentheses: false
 SpacesInSquareBrackets: false
+
+PenaltyReturnTypeOnItsOwnLine: 1000000
