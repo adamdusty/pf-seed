@@ -17,7 +17,6 @@ FetchContent_Declare(
     snitch
     GIT_REPOSITORY https://github.com/snitch-org/snitch.git
     GIT_TAG        v1.2.4
-    GIT_SHALLOW    TRUE
     SYSTEM
     FIND_PACKAGE_ARGS # Use system package if installed
 )
@@ -41,6 +40,6 @@ add_test(NAME seed_tests COMMAND seed_tests)
 if(BUILD_SHARED_LIBS)
     set_tests_properties(seed_tests PROPERTIES
         ENVIRONMENT_MODIFICATION
-            "PATH=path_list_append:$<TARGET_FILE_DIR:passionfruit::seed>;PATH=path_list_append:$<TARGET_FILE_DIR:snitch::snitch>"
+            "PATH=path_list_append:$<TARGET_FILE_DIR:passionfruit::seed>;PATH=path_list_append:$<TARGET_FILE_DIR:snitch::snitch>;PATH=path_list_append:$<TARGET_FILE_DIR:SDL2::SDL2>"
     )
 endif()

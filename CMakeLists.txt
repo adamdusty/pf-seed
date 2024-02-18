@@ -20,7 +20,7 @@ add_library(passionfruit::seed ALIAS passionfruit_seed)
 # Add sources
 target_sources(passionfruit_seed PRIVATE
     src/seed.cpp
-    src/window.cpp
+    src/window/window.cpp
 )
 
 # Add include directory
@@ -41,6 +41,7 @@ target_include_directories(
 # Include and link dependencies
 target_link_libraries(passionfruit_seed
     PUBLIC
+        adizzle::adizzle
         nonstd::expected-lite
         SDL2::SDL2
 )

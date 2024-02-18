@@ -11,7 +11,7 @@ include(CMakePackageConfigHelpers)
 
 # Set up export components
 install(
-    TARGETS passionfruit_seed
+    TARGETS passionfruit_seed SDL2
     EXPORT seedTargets
     RUNTIME COMPONENT seed_Runtime
     LIBRARY COMPONENT seed_Runtime
