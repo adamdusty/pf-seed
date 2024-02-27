@@ -59,9 +59,16 @@ auto window::platform_window() const -> expected<raw_window, std::string> {
     }
     switch(info.subsystem) {
     case SDL_SYSWM_WINDOWS:
+
+#if defined(__WIN32) && __WIN32
         return raw_window{hwnd{.hwnd = info.info.win.window, .hinstance = info.info.win.hinstance}}; // NOLINT
-    case SDL_SYSWM_X11:
+#endif
+
     case SDL_SYSWM_WAYLAND:
+#if defined(SDL_VIDEO_DRIVER_WAYLAND) && SDL_VIDEO_DRIVER_WAYLAND
+        return raw_window{wayland_surface{.display = info.info.wl.display, .surface = info.info.wl.surface}}; // NOLINT
+#endif
+    case SDL_SYSWM_X11:
     case SDL_SYSWM_UNKNOWN:
     case SDL_SYSWM_DIRECTFB:
     case SDL_SYSWM_COCOA:

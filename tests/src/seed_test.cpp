@@ -1,7 +1,6 @@
 #include <chrono>
 #include <seed/seed.hpp>
 #include <snitch/snitch.hpp>
-#include <thread>
 
 using namespace passionfruit::seed;
 
@@ -11,7 +10,7 @@ TEST_CASE("Window create", "[window]") {
         .width    = 640,
         .height   = 480,
         .flags    = window_flags::hidden,
-        .position = {window_position::centered, window_position::centered}
+        .position = {window_position::centered, window_position::centered},
     };
 
     auto window_create_result = window::create(wco);
@@ -27,7 +26,7 @@ TEST_CASE("Window size", "[window]") {
         .width    = 640,
         .height   = 480,
         .flags    = window_flags::hidden,
-        .position = {window_position::centered, window_position::centered}
+        .position = {window_position::centered, window_position::centered},
     };
 
     auto window_create_result = window::create(wco);
