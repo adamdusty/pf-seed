@@ -1,5 +1,6 @@
 #include "seed/window.hpp"
 #include <adizzle/assert.hpp>
+#include <compare>
 #include <format>
 #include <limits>
 
@@ -44,8 +45,8 @@ auto window::size() const -> std::pair<std::uint32_t, std::uint32_t> {
 }
 
 auto window::size(std::uint32_t width, std::uint32_t height) -> void {
-    ADIZZLE_ASSERT(width < std::numeric_limits<int>::max(), "Width not convertable to int");
-    ADIZZLE_ASSERT(height < std::numeric_limits<int>::max(), "Height not convertable to int");
+    ADIZZLE_ASSERT(std::cmp_less(width, std::numeric_limits<int>::max()), "Width not convertable to int");
+    ADIZZLE_ASSERT(std::cmp_less(height, std::numeric_limits<int>::max()), "Height not convertable to int");
 
     SDL_SetWindowSize(_handle, static_cast<int>(width), static_cast<int>(height));
 }
