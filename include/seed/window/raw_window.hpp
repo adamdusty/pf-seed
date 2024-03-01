@@ -1,5 +1,6 @@
 #pragma once
 
+#include <cstdint>
 #include <variant>
 
 #include "seed/export.hpp"
@@ -35,7 +36,7 @@ struct xcb_window {
 
 struct xlib_window {
     void* display;
-    void* window;
+    std::uint64_t window;
 };
 
 using raw_window =
