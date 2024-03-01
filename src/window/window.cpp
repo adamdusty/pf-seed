@@ -61,7 +61,7 @@ auto window::platform_window() const -> expected<raw_window, std::string> {
     switch(info.subsystem) {
     case SDL_SYSWM_WINDOWS:
 
-#if defined(__WIN32) && __WIN32
+#if defined(_WIN32) && _WIN32
         return raw_window{hwnd{.hwnd = info.info.win.window, .hinstance = info.info.win.hinstance}}; // NOLINT
 #endif
 
